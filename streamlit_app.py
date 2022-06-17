@@ -63,5 +63,5 @@ for i in rand:
 in1 = plt.figure(1)
 plt.hist(a, color='r')
 plt.xlabel('Tiempo (s)')
-plt.ylabel('No. estrellas')
+plt.ylabel('Num estrellas')
 st.pyplot(in1)
