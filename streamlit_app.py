@@ -17,7 +17,7 @@ while True:
 
     mb_new_received = new_received / 1024 / 1024
     mb_new_sent = new_sent / 1024 / 1024
-    mb_new_total = new_total / 1024 / 1024
+    #mb_new_total = new_total / 1024 / 1024
 
     st.write(mb_new_received)
 
