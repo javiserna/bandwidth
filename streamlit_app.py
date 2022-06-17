@@ -36,7 +36,9 @@ def tac():
 
 @st.experimental_memo(suppress_st_warning=True, show_spinner=False)
 def runner(starName):
-    st.info(starName)
+    cl1, cl2 = st.columns([1,10])
+    with cl1:
+        st.info(starName)
     catalogData = Catalogs.query_object(starName, catalog = "TIC")
     ra = catalogData[0]['ra']
     dec = catalogData[0]['dec']
