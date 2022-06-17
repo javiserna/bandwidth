@@ -8,7 +8,19 @@ from time import process_time
 
 st.header("Tiempo de descarga de datos del portal TESScut")
 
-t1_start = process_time()
+_start_time = time.time()
+
+def tic():
+    global _start_time
+    _start_time = time.time()
+
+def tac():
+    t_sec = round(time.time() - _start_time)
+    (t_min, t_sec) = divmod(t_sec,60)
+    (t_hour,t_min) = divmod(t_min,60)
+    st.write('Time passed: {}min:{}sec'.format(t_min,t_sec))
+
+
 #last_received = psutil.net_io_counters().bytes_recv
 #last_sent = psutil.net_io_counters().bytes_sent
 #last_total = last_received + last_sent
@@ -28,13 +40,8 @@ def runner(starName):
     coord = SkyCoord(ra, dec, unit = "deg")
     hdulist = Tesscut.get_cutouts(coordinates=coord, size=10)
 
-    t1_stop = process_time()
-
-    final = t1_stop-t1_start
-
     st.write(final, "seconds")
 
-    t1_start = final
 
     #new_received = bytes_received - last_received
     #new_sent = bytes_sent - last_sent
@@ -52,5 +59,7 @@ def runner(starName):
 list=["GM Aur", "Lambda Ori", "Sz 19", "25 Ori", "Gamma Vel", "HL Tau", "BP Tau", "Sigma Ori", "Epsilon Ori", "TX Ori"]
 
 for i in list:
+    tic()
     runner(i)
     st.legacy_caching.caching.clear_cache()
+    tac()
