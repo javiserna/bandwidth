@@ -16,12 +16,6 @@ def runner(starName):
     bytes_sent = psutil.net_io_counters().bytes_sent
     bytes_total = bytes_received + bytes_sent
 
-    new_received = bytes_received - last_received
-    new_sent = bytes_sent - last_sent
-
-    mb_new_received = new_received / 1024 / 1024
-    mb_new_sent = new_sent / 1024 / 1024
-    #mb_new_total = new_total / 1024 / 1024
 
     catalogData = Catalogs.query_object(starName, catalog = "TIC")
     ra = catalogData[0]['ra']
@@ -30,6 +24,13 @@ def runner(starName):
     Tmag = catalogData[0]['Tmag']
     coord = SkyCoord(ra, dec, unit = "deg")
     hdulist = Tesscut.get_cutouts(coordinates=coord, size=10)
+
+    new_received = bytes_received - last_received
+    new_sent = bytes_sent - last_sent
+
+    mb_new_received = new_received / 1024 / 1024
+    mb_new_sent = new_sent / 1024 / 1024
+    #mb_new_total = new_total / 1024 / 1024
 
     st.write(mb_new_received)
     st.write(mb_new_sent)
