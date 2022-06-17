@@ -6,6 +6,7 @@ from astropy.coordinates import SkyCoord
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import random
 
 hide_streamlit_style = """
                 <style>
@@ -50,6 +51,8 @@ def runner(starName):
 
 
 list=["GM Aur", "Lambda Ori", "Sz 19", "25 Ori", "Gamma Vel", "HL Tau", "BP Tau", "Sigma Ori", "Epsilon Ori", "TX Ori"]
+list=random.shuffle(list)
+
 a=[]
 
 for i in list:
@@ -59,5 +62,5 @@ for i in list:
 
 in1 = plt.figure(1)
 plt.hist(a, color='r')
-plt.xlabel('Tiempo (Segundos)')
+plt.xlabel('Tiempo (s)')
 st.pyplot(in1)
