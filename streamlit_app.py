@@ -1,10 +1,11 @@
 import streamlit as st
-#import psutil
 import time
 from astroquery.mast import Tesscut
 from astroquery.mast import Catalogs
 from astropy.coordinates import SkyCoord
-from time import process_time
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 hide_streamlit_style = """
                 <style>
@@ -18,7 +19,7 @@ hide_streamlit_style = """
                 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-st.header("Tiempo de descarga de datos del portal TESScut")
+st.header("Tiempo de descarga promedio de datos para 10 estrellas")
 
 _start_time = time.time()
 
@@ -31,6 +32,7 @@ def tac():
     (t_min, t_sec) = divmod(t_sec,60)
     (t_hour,t_min) = divmod(t_min,60)
     st.write('{} seg'.format(t_sec))
+    return t_sec
 
 @st.experimental_memo(suppress_st_warning=True, show_spinner=False)
 def runner(starName):
@@ -46,8 +48,13 @@ def runner(starName):
 
 
 list=["GM Aur", "Lambda Ori", "Sz 19", "25 Ori", "Gamma Vel", "HL Tau", "BP Tau", "Sigma Ori", "Epsilon Ori", "TX Ori"]
+a=[]
 
 for i in list:
     tic()
     runner(i)
-    tac()
+    a.append(tac())
+
+in=plt.figure(1)
+plt.hist(a, color = 'red')
+st.pyplot(in)
