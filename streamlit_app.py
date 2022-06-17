@@ -40,9 +40,6 @@ def runner(starName):
     coord = SkyCoord(ra, dec, unit = "deg")
     hdulist = Tesscut.get_cutouts(coordinates=coord, size=10)
 
-    st.write(final, "seconds")
-
-
     #new_received = bytes_received - last_received
     #new_sent = bytes_sent - last_sent
 
