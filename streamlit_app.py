@@ -6,13 +6,14 @@ from astroquery.mast import Catalogs
 from astropy.coordinates import SkyCoord
 from time import process_time
 
-st.header("Time in seconds downloading data from TESScut")
+st.header("Tiempo de descarga de datos del portal TESScut")
 
 t1_start = process_time()
 #last_received = psutil.net_io_counters().bytes_recv
 #last_sent = psutil.net_io_counters().bytes_sent
 #last_total = last_received + last_sent
 
+@st.experimental_memo(suppress_st_warning=True)
 def runner(starName):
     #bytes_received = psutil.net_io_counters().bytes_recv
     #bytes_sent = psutil.net_io_counters().bytes_sent
@@ -27,9 +28,11 @@ def runner(starName):
     coord = SkyCoord(ra, dec, unit = "deg")
     hdulist = Tesscut.get_cutouts(coordinates=coord, size=10)
 
+    new_t1_start = t1_start
+
     t1_stop = process_time()
 
-    final = t1_stop-t1_start
+    final = t1_stop-new_t1_start
 
     st.write('{0:.3g}'.format(final), "seconds")
 
@@ -50,3 +53,4 @@ list=["GM Aur", "Lambda Ori", "Sz 19", "25 Ori", "Gamma Vel", "HL Tau", "BP Tau"
 
 for i in list:
     runner(i)
+    st.legacy_caching.caching.clear_cache()
