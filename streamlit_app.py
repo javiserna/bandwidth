@@ -6,7 +6,7 @@ from astroquery.mast import Catalogs
 from astropy.coordinates import SkyCoord
 from time import process_time
 
-st.header("bandwidth usage by astropy")
+st.header("Time in seconds downloading data from TESScut")
 
 t1_start = process_time()
 #last_received = psutil.net_io_counters().bytes_recv
@@ -31,7 +31,7 @@ def runner(starName):
 
     final = t1_stop-t1_start
 
-    st.write(final)
+    st.write(final, "seconds")
 
     #new_received = bytes_received - last_received
     #new_sent = bytes_sent - last_sent
