@@ -2,3 +2,4 @@ astropy
 astroquery==0.4.6
 pyastronomy
 scipy
+matplotlib
