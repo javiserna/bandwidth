@@ -55,6 +55,6 @@ for i in list:
     runner(i)
     a.append(tac())
 a=np.array(a)
-in = plt.figure(1)
+in1 = plt.figure(1)
 plt.hist(a, color = 'red')
-st.pyplot(in)
+st.pyplot(in1)
