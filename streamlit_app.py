@@ -31,10 +31,10 @@ def runner(starName):
 
     final = t1_stop-t1_start
 
+    t1_start = t1_stop
+
     st.write(final)
 
-    t1_start = t1_stop
-    
     #new_received = bytes_received - last_received
     #new_sent = bytes_sent - last_sent
 
