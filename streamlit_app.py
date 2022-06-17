@@ -27,6 +27,12 @@ def runner(starName):
     coord = SkyCoord(ra, dec, unit = "deg")
     hdulist = Tesscut.get_cutouts(coordinates=coord, size=10)
 
+    t1_stop = process_time()
+
+    final = t1_stop-t1_start
+
+    st.write(final)
+
     #new_received = bytes_received - last_received
     #new_sent = bytes_sent - last_sent
 
@@ -44,9 +50,3 @@ list=["HL Tau", "BP Tau", "Sigma Ori", "Epsilon Ori", "TX Ori"]
 
 for i in list:
     runner(i)
-
-t1_stop = process_time()
-
-final = t1_stop-t1_start
-
-st.write(final)
