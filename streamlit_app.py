@@ -18,7 +18,7 @@ def tac():
     t_sec = round(time.time() - _start_time)
     (t_min, t_sec) = divmod(t_sec,60)
     (t_hour,t_min) = divmod(t_min,60)
-    st.write('{}seg'.format(t_sec))
+    st.write('{} seg'.format(t_sec))
 
 @st.experimental_memo(suppress_st_warning=True, show_spinner=False)
 def runner(starName):
