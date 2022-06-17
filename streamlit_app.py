@@ -38,5 +38,5 @@ list=["GM Aur", "Lambda Ori", "Sz 19", "25 Ori", "Gamma Vel", "HL Tau", "BP Tau"
 for i in list:
     tic()
     runner(i)
-    st.legacy_caching.caching.clear_cache()
     tac()
+    st.legacy_caching.caching.clear_cache()
