@@ -18,7 +18,7 @@ def runner(starName):
     #bytes_sent = psutil.net_io_counters().bytes_sent
     #bytes_total = bytes_received + bytes_sent
 
-
+    st.write(starName)
     catalogData = Catalogs.query_object(starName, catalog = "TIC")
     ra = catalogData[0]['ra']
     dec = catalogData[0]['dec']
