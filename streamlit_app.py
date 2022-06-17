@@ -1,6 +1,10 @@
 import streamlit as st
 import psutil
 import time
+from astroquery.mast import Tesscut
+from astroquery.mast import Catalogs
+
+
 
 st.header("bandwidth usage by astropy")
 
@@ -19,6 +23,13 @@ while True:
     mb_new_received = new_received / 1024 / 1024
     mb_new_sent = new_sent / 1024 / 1024
     #mb_new_total = new_total / 1024 / 1024
+
+    catalogData = Catalogs.query_object(starName, catalog = "TIC")
+    ra = catalogData[0]['ra']
+    dec = catalogData[0]['dec']
+    tic = catalogData[0]['ID']
+    Tmag = catalogData[0]['Tmag']
+
 
     st.write(mb_new_received)
     st.write(mb_new_sent)
