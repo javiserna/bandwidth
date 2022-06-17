@@ -31,7 +31,7 @@ def runner(starName):
 
     final = t1_stop-t1_start
 
-    st.write(final, "seconds")
+    st.write('{0:.3g}'.format(final), "seconds")
 
     #new_received = bytes_received - last_received
     #new_sent = bytes_sent - last_sent
