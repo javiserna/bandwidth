@@ -58,6 +58,6 @@ for i in list:
     a.append(tac())
 
 in1 = plt.figure(1)
-plt.hist(a, c='r')
+plt.hist(a, color='r')
 plt.xlabel('Tiempo (Segundos)')
 st.pyplot(in1)
