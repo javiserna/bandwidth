@@ -46,7 +46,7 @@ def runner(starName):
     #last_received = bytes_received
     #last_sent = bytes_sent
 
-list=["HL Tau", "BP Tau", "Sigma Ori", "Epsilon Ori", "TX Ori"]
+list=["GM Aur", "Lambda Ori", "Sz 19", "25 Ori", "Gamma Vel", "HL Tau", "BP Tau", "Sigma Ori", "Epsilon Ori", "TX Ori"]
 
 for i in list:
     runner(i)
