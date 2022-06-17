@@ -54,7 +54,7 @@ for i in list:
     tic()
     runner(i)
     a.append(tac())
-
+a=np.array(a)
 in = plt.figure(1)
 plt.hist(a, color = 'red')
 st.pyplot(in)
