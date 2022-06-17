@@ -51,7 +51,7 @@ def runner(starName):
 
 
 list=["GM Aur", "Lambda Ori", "Sz 19", "25 Ori", "Gamma Vel", "HL Tau", "BP Tau", "Sigma Ori", "Epsilon Ori", "TX Ori"]
-list=random.shuffle(list)
+random.shuffle(list)
 
 a=[]
 
