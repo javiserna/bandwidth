@@ -31,7 +31,7 @@ def runner(starName):
 
     final = t1_stop-t1_start
 
-    t1_start = t1_stop
+    t1_start = final
 
     st.write(final)
 
