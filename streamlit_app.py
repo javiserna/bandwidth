@@ -18,7 +18,10 @@ def tac():
     t_sec = round(time.time() - _start_time)
     (t_min, t_sec) = divmod(t_sec,60)
     (t_hour,t_min) = divmod(t_min,60)
-    st.write('Time passed: {}min:{}sec'.format(t_min,t_sec))
+    if t_sec<60:
+        st.write('{} seg'.format(t_sec))
+    else:
+        st.write('{} min:{} seg'.format(t_min,t_sec))
 
 
 #last_received = psutil.net_io_counters().bytes_recv
