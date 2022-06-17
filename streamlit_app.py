@@ -56,5 +56,6 @@ for i in list:
     a.append(tac())
 
 in1 = plt.figure(1)
-plt.hist(a, color = 'red')
+plt.hist(a, bins=auto, color = 'red')
+plt.xlabel('Tiempo (Segundos)')
 st.pyplot(in1)
