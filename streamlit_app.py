@@ -1,5 +1,6 @@
 import streamlit as st
 import psutil
+import time
 
 st.header("bandwidth usage by astropy")
 
