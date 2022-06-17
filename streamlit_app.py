@@ -13,7 +13,7 @@ t1_start = process_time()
 #last_sent = psutil.net_io_counters().bytes_sent
 #last_total = last_received + last_sent
 
-@st.experimental_memo(suppress_st_warning=True)
+@st.experimental_memo(suppress_st_warning=True, show_spinner=False)
 def runner(starName):
     #bytes_received = psutil.net_io_counters().bytes_recv
     #bytes_sent = psutil.net_io_counters().bytes_sent
