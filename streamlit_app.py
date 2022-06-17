@@ -31,6 +31,7 @@ def runner(starName):
     Tmag = catalogData[0]['Tmag']
     coord = SkyCoord(ra, dec, unit = "deg")
     hdulist = Tesscut.get_cutouts(coordinates=coord, size=10)
+    st.legacy_caching.caching.clear_cache()
 
 
 list=["GM Aur", "Lambda Ori", "Sz 19", "25 Ori", "Gamma Vel", "HL Tau", "BP Tau", "Sigma Ori", "Epsilon Ori", "TX Ori"]
@@ -39,4 +40,3 @@ for i in list:
     tic()
     runner(i)
     tac()
-    st.legacy_caching.caching.clear_cache()
