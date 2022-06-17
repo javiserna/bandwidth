@@ -21,7 +21,7 @@ while True:
     #mb_new_total = new_total / 1024 / 1024
 
     st.write(mb_new_received)
-    st.write(mb_new_sent)
+    st.write({mb_new_sent} MB)
 
     last_received = bytes_received
     last_sent = bytes_sent
