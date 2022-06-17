@@ -37,7 +37,7 @@ def tac():
 
 @st.experimental_memo(suppress_st_warning=True, show_spinner=False)
 def runner(starName):
-    cl1, cl2 = st.columns([2,5])
+    cl1, cl2 = st.columns([1.5,5])
     with cl1:
         st.info(starName)
     catalogData = Catalogs.query_object(starName, catalog = "TIC")
@@ -51,11 +51,11 @@ def runner(starName):
 
 
 list=["GM Aur", "Lambda Ori", "Sz 19", "25 Ori", "Gamma Vel", "HL Tau", "BP Tau", "Sigma Ori", "Epsilon Ori", "TX Ori"]
-random.shuffle(list)
+rand = random.sample(list, len(list))
 
 a=[]
 
-for i in list:
+for i in rand:
     tic()
     runner(i)
     a.append(tac())
